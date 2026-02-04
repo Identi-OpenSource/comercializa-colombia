@@ -1,0 +1,690 @@
+{
+  "_id": {
+    "$oid": "id del esquema MONGODB"
+  },
+  "id": "id del esquema",
+  "instruction_group_summary": [],
+  "instruction_start": "9380e9cb-2005-474c-bffa-0330c3a02d05",
+  "instructions": [
+    {
+      "id": "9380e9cb-2005-474c-bffa-0330c3a02d05",
+      "config": {
+        "tool": {
+          "id": "4",
+          "name": "Texto corto",
+          "description": "Permite al usuario esribir un texto de maximo 100 carácteres.",
+          "place_holder": "Escribe tu respuesta aquí",
+          "on_action": null
+        },
+        "color": "#C6E2F9",
+        "is_gather": true,
+        "is_channel": true
+      },
+      "schema_gather": {
+        "id": "a49bf01a-9710-4613-b781-0eae1b12a7dc",
+        "name": "nombre",
+        "type_value": "text",
+        "is_module_attr": true,
+        "is_unique": false,
+        "is_optional": false,
+        "is_representative": true,
+        "is_visual_table": "1"
+      },
+      "schema_input": [
+        {
+          "name": "title",
+          "display_name": "Pregunta",
+          "place_holder": "Escribe el texto aquí",
+          "description": "",
+          "type_input": "text",
+          "is_increasing": false,
+          "is_optional": false,
+          "is_gather_name": true,
+          "is_representative": true,
+          "is_condition": false,
+          "options": [],
+          "schema_input": [],
+          "rules": {},
+          "id": "3d4dcacb-3b7b-43c8-b505-a1a2055f1f19",
+          "value": "Nombre"
+        },
+        {
+          "name": "description",
+          "display_name": "Descripción",
+          "place_holder": "Descripción opcional",
+          "description": "",
+          "type_input": "text",
+          "is_increasing": false,
+          "is_optional": true,
+          "is_gather_name": false,
+          "is_representative": false,
+          "is_condition": false,
+          "options": [],
+          "schema_input": [],
+          "rules": {},
+          "id": "de6fd29d-8e03-4a20-b5ee-91839107cec8"
+        },
+        {
+          "name": "type",
+          "type_input": "text",
+          "is_hidden": true,
+          "value": "text"
+        },
+        {
+          "name": "max_length",
+          "type_input": "number",
+          "is_hidden": true,
+          "value": {
+            "$numberInt": "100"
+          }
+        }
+      ],
+      "schema_input_advanced": [],
+      "schema_variables": [],
+      "schema_conditions": [
+        {
+          "id": "f6eaec13-03f9-4391-b75c-48e56e5eea97",
+          "next_instruction_id": "193598ca-487d-4fbf-b6fe-c3563763e36c",
+          "type_condition": "by_success"
+        }
+      ],
+      "group_index": {
+        "$numberInt": "0"
+      },
+      "metadata": {
+        "data_input": {
+          "max_length": {
+            "$numberInt": "100"
+          },
+          "type": "text",
+          "description": null,
+          "title": "Nombre"
+        }
+      }
+    },
+    {
+      "id": "193598ca-487d-4fbf-b6fe-c3563763e36c",
+      "config": {
+        "tool": {
+          "id": "6",
+          "name": "Número",
+          "description": "Permite al usuario ingresar un valor numérico",
+          "place_holder": "Escribe tu respuesta aquí",
+          "on_action": null
+        },
+        "color": "#FDE68A",
+        "is_gather": true,
+        "is_channel": true
+      },
+      "schema_gather": {
+        "id": "9df669d0-498e-491e-9d5b-e59b0b0905ca",
+        "name": "dni",
+        "type_value": "number",
+        "is_module_attr": true,
+        "is_unique": true,
+        "is_optional": false,
+        "is_representative": false,
+        "is_visual_table": "2"
+      },
+      "schema_input": [
+        {
+          "name": "title",
+          "display_name": "Pregunta",
+          "place_holder": "Escribe el texto aquí",
+          "description": "",
+          "type_input": "text",
+          "is_increasing": false,
+          "is_optional": false,
+          "is_gather_name": true,
+          "is_representative": true,
+          "is_condition": false,
+          "options": [],
+          "schema_input": [],
+          "rules": {},
+          "id": "c3db950b-d36b-4df6-96bc-4b071a6424b2",
+          "value": "DNI"
+        },
+        {
+          "name": "description",
+          "display_name": "Descripción",
+          "place_holder": "Descripción opcional",
+          "description": "",
+          "type_input": "text",
+          "is_increasing": false,
+          "is_optional": true,
+          "is_gather_name": false,
+          "is_representative": false,
+          "is_condition": false,
+          "options": [],
+          "schema_input": [],
+          "rules": {},
+          "id": "bc489e2c-011d-4cb5-adba-763b88c9ae62"
+        },
+        {
+          "name": "type",
+          "type_input": "text",
+          "is_hidden": true,
+          "value": "number"
+        }
+      ],
+      "schema_input_advanced": [
+        {
+          "name": "min",
+          "display_name": "Número mínimo",
+          "place_holder": "0-9999999999999",
+          "description": "",
+          "type_input": "number",
+          "is_increasing": false,
+          "is_optional": true,
+          "options": [],
+          "schema_input": [],
+          "rules": {
+            "number": [
+              {
+                "type_rule": "min",
+                "value": {
+                  "$numberInt": "0"
+                }
+              },
+              {
+                "type_rule": "max",
+                "value": {
+                  "$numberLong": "9999999999999"
+                }
+              }
+            ]
+          },
+          "value": "0"
+        },
+        {
+          "name": "max",
+          "display_name": "Número máximo",
+          "place_holder": "0-9999999999999",
+          "description": "",
+          "type_input": "number",
+          "is_increasing": false,
+          "is_optional": true,
+          "options": [],
+          "schema_input": [],
+          "rules": {
+            "number": [
+              {
+                "type_rule": "min",
+                "value": {
+                  "$numberInt": "0"
+                }
+              },
+              {
+                "type_rule": "max",
+                "value": {
+                  "$numberLong": "9999999999999"
+                }
+              }
+            ]
+          },
+          "value": "99999999"
+        }
+      ],
+      "schema_variables": [],
+      "schema_conditions": [
+        {
+          "id": "b4876ecb-8381-4342-a20e-f679673cea91",
+          "next_instruction_id": "0a2240ee-7524-49f9-b0ce-61ed2b0932d8",
+          "type_condition": "by_success"
+        }
+      ],
+      "group_index": {
+        "$numberInt": "0"
+      },
+      "metadata": {
+        "data_input": {
+          "max": "99999999",
+          "min": "0",
+          "type": "number",
+          "description": null,
+          "title": "DNI"
+        }
+      }
+    },
+    {
+      "id": "0a2240ee-7524-49f9-b0ce-61ed2b0932d8",
+      "config": {
+        "tool": {
+          "id": "4",
+          "name": "Texto corto",
+          "description": "Permite al usuario esribir un texto de maximo 100 carácteres.",
+          "place_holder": "Escribe tu respuesta aquí",
+          "on_action": null
+        },
+        "color": "#C6E2F9",
+        "is_gather": true,
+        "is_channel": true
+      },
+      "schema_gather": {
+        "id": "f92fef43-3f7d-47ad-93fc-3a31239a5a10",
+        "name": "Código interno",
+        "type_value": "text",
+        "is_module_attr": true,
+        "is_unique": true,
+        "is_optional": false,
+        "is_representative": false,
+        "is_visual_table": "3"
+      },
+      "schema_input": [
+        {
+          "name": "title",
+          "display_name": "Pregunta",
+          "place_holder": "Escribe el texto aquí",
+          "description": "",
+          "type_input": "text",
+          "is_increasing": false,
+          "is_optional": false,
+          "is_gather_name": true,
+          "is_representative": true,
+          "is_condition": false,
+          "options": [],
+          "schema_input": [],
+          "rules": {},
+          "id": "acb4bb44-f2d4-46db-ae55-913d60613032",
+          "value": "Código interno"
+        },
+        {
+          "name": "description",
+          "display_name": "Descripción",
+          "place_holder": "Descripción opcional",
+          "description": "",
+          "type_input": "text",
+          "is_increasing": false,
+          "is_optional": true,
+          "is_gather_name": false,
+          "is_representative": false,
+          "is_condition": false,
+          "options": [],
+          "schema_input": [],
+          "rules": {},
+          "id": "251bfce3-0f6c-4e2d-9179-343e95eae8e0"
+        },
+        {
+          "name": "type",
+          "type_input": "text",
+          "is_hidden": true,
+          "value": "text"
+        },
+        {
+          "name": "max_length",
+          "type_input": "number",
+          "is_hidden": true,
+          "value": {
+            "$numberInt": "100"
+          }
+        }
+      ],
+      "schema_input_advanced": [],
+      "schema_variables": [],
+      "schema_conditions": [
+        {
+          "id": "de2bea3a-d013-428e-9315-bb3ac53f4984",
+          "next_instruction_id": "271f504d-3a89-4adc-a257-0fafe9011696",
+          "type_condition": "by_success"
+        }
+      ],
+      "group_index": {
+        "$numberInt": "0"
+      },
+      "metadata": {
+        "data_input": {
+          "max_length": {
+            "$numberInt": "100"
+          },
+          "type": "text",
+          "description": null,
+          "title": "Código interno"
+        }
+      }
+    },
+    {
+      "id": "271f504d-3a89-4adc-a257-0fafe9011696",
+      "config": {
+        "tool": {
+          "id": "1",
+          "name": "desplegable",
+          "description": "Permite al usuario elegir una opción de un conjunto predefinido de opciones que se despliegan en una lista desplegable al hacer clic en el campo.",
+          "on_action": null
+        },
+        "color": "#FCA5A5",
+        "is_gather": true,
+        "is_channel": true
+      },
+      "schema_gather": {
+        "id": "0bd6b2dd-69ec-4db6-95ba-c44a746db3cd",
+        "name": "sexo",
+        "type_value": "option",
+        "is_module_attr": true,
+        "is_unique": false,
+        "is_optional": false,
+        "is_representative": false,
+        "is_visual_table": "4",
+        "option": [
+          {
+            "id": "18c68edf-9d76-44a1-915a-ffc8bcb3067b",
+            "value": "Femenino"
+          },
+          {
+            "id": "496425b1-adaa-475a-8bcb-f77008288ddb",
+            "value": "Masculino"
+          }
+        ]
+      },
+      "schema_input": [
+        {
+          "name": "title",
+          "display_name": "Pregunta",
+          "place_holder": "Escribe el texto aquí",
+          "description": "",
+          "type_input": "text",
+          "is_increasing": false,
+          "is_optional": false,
+          "is_gather_name": true,
+          "is_representative": true,
+          "is_condition": false,
+          "options": [],
+          "schema_input": [],
+          "rules": {},
+          "id": "c752af3d-775f-4927-b308-731881e13e92",
+          "value": "Sexo"
+        },
+        {
+          "name": "type",
+          "is_hidden": true,
+          "type_input": "text",
+          "value": "options"
+        },
+        {
+          "name": "sub_type",
+          "is_hidden": true,
+          "type_input": "text",
+          "value": "dropdown"
+        },
+        {
+          "name": "description",
+          "display_name": "Descripción",
+          "place_holder": "Descripción opcional",
+          "description": "",
+          "type_input": "text",
+          "is_increasing": false,
+          "is_optional": true,
+          "is_gather_name": false,
+          "is_representative": false,
+          "is_condition": false,
+          "options": [],
+          "schema_input": [],
+          "rules": {},
+          "id": "64ca48bc-b3a0-4e52-afee-4c96fb7d1e93"
+        },
+        {
+          "name": "options",
+          "display_name": "Opciones",
+          "place_holder": "Selecciona tu respuesta aquí",
+          "description": "",
+          "type_input": "text",
+          "label_increasing": "Agregar opciones",
+          "is_increasing": true,
+          "is_optional": false,
+          "is_gather_name": false,
+          "is_representative": true,
+          "is_condition": false,
+          "options": [],
+          "schema_input": [],
+          "rules": {
+            "increasing": [
+              {
+                "rule": "view",
+                "value": "dropdown"
+              },
+              {
+                "rule": "max",
+                "value": {
+                  "$numberInt": "10"
+                }
+              },
+              {
+                "rule": "min",
+                "value": {
+                  "$numberInt": "1"
+                }
+              }
+            ]
+          },
+          "is_gather_value": true,
+          "id": "6a66030a-ab8f-4e9a-8ff8-5a4940920d16",
+          "value": [
+            {
+              "id": "18c68edf-9d76-44a1-915a-ffc8bcb3067b",
+              "value": "Femenino"
+            },
+            {
+              "id": "496425b1-adaa-475a-8bcb-f77008288ddb",
+              "value": "Masculino"
+            }
+          ]
+        }
+      ],
+      "schema_input_advanced": [],
+      "schema_variables": [],
+      "schema_conditions": [
+        {
+          "id": "203a02ae-e3bc-41c2-919f-1c1b7368019a",
+          "next_instruction_id": "9a9a029c-71d2-4441-9051-63f3b0459a15",
+          "type_condition": "by_success"
+        }
+      ],
+      "group_index": {
+        "$numberInt": "0"
+      },
+      "metadata": {
+        "data_input": {
+          "options": [
+            "Femenino",
+            "Masculino"
+          ],
+          "description": null,
+          "sub_type": "dropdown",
+          "type": "options",
+          "title": "Sexo"
+        }
+      }
+    },
+    {
+      "id": "9a9a029c-71d2-4441-9051-63f3b0459a15",
+      "config": {
+        "tool": {
+          "id": "4",
+          "name": "Texto corto",
+          "description": "Permite al usuario esribir un texto de maximo 100 carácteres.",
+          "place_holder": "Escribe tu respuesta aquí",
+          "on_action": null
+        },
+        "color": "#C6E2F9",
+        "is_gather": true,
+        "is_channel": true
+      },
+      "schema_gather": {
+        "id": "18a68d92-2c33-4aae-b37b-c5ae1487e4c8",
+        "name": "número telefónico",
+        "type_value": "text",
+        "is_module_attr": true,
+        "is_unique": false,
+        "is_optional": false,
+        "is_representative": false,
+        "is_visual_table": "5"
+      },
+      "schema_input": [
+        {
+          "name": "title",
+          "display_name": "Pregunta",
+          "place_holder": "Escribe el texto aquí",
+          "description": "",
+          "type_input": "text",
+          "is_increasing": false,
+          "is_optional": false,
+          "is_gather_name": true,
+          "is_representative": true,
+          "is_condition": false,
+          "options": [],
+          "schema_input": [],
+          "rules": {},
+          "id": "ec0ea1b4-10d6-439d-9eb4-a50aa976c180",
+          "value": "Número telefónico"
+        },
+        {
+          "name": "description",
+          "display_name": "Descripción",
+          "place_holder": "Descripción opcional",
+          "description": "",
+          "type_input": "text",
+          "is_increasing": false,
+          "is_optional": true,
+          "is_gather_name": false,
+          "is_representative": false,
+          "is_condition": false,
+          "options": [],
+          "schema_input": [],
+          "rules": {},
+          "id": "bfd914ef-f1e9-4ed6-b08e-697e66c6143f"
+        },
+        {
+          "name": "type",
+          "type_input": "text",
+          "is_hidden": true,
+          "value": "text"
+        },
+        {
+          "name": "max_length",
+          "type_input": "number",
+          "is_hidden": true,
+          "value": {
+            "$numberInt": "100"
+          }
+        }
+      ],
+      "schema_input_advanced": [],
+      "schema_variables": [],
+      "schema_conditions": [
+        {
+          "id": "467b380b-ecb9-4726-8681-113afc94286f",
+          "next_instruction_id": "6e39070c-c647-4fcb-9bb4-12d471ddcfe3",
+          "type_condition": "by_success"
+        }
+      ],
+      "group_index": {
+        "$numberInt": "0"
+      },
+      "metadata": {
+        "data_input": {
+          "max_length": {
+            "$numberInt": "100"
+          },
+          "type": "text",
+          "description": null,
+          "title": "Número telefónico"
+        }
+      }
+    },
+    {
+      "id": "6e39070c-c647-4fcb-9bb4-12d471ddcfe3",
+      "config": {
+        "tool": {
+          "id": "12",
+          "name": "Verificar productor en Micacao",
+          "description": "Permite verificar si un DNI se encuentra registrado en el sistema MiCacao y obtener información detallada sobre las parcelas asociadas a dicho registro.",
+          "on_action": {
+            "location": "https://isft3g884c.execute-api.us-east-1.amazonaws.com/identi-collector-backend/tools/validate_micacao",
+            "type_tool": "data",
+            "type": "api",
+            "api_key": "Identi eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZXJ2aWNlIjoiaWRlbnRpLWNvbGxlY3RvciJ9.4HrG0omAFD84nDzW9RKj698jfRgUQJQrOLUXzmxJg-0"
+          }
+        },
+        "color": "#D7F571",
+        "is_gather": false,
+        "is_channel": false
+      },
+      "schema_input": [
+        {
+          "name": "dni",
+          "display_name": "Dni",
+          "place_holder": "Escribe el texto aquí",
+          "description": "El dni del usuario a verificar",
+          "type_input": "text",
+          "is_increasing": false,
+          "is_optional": false,
+          "is_gather_name": false,
+          "is_representative": true,
+          "is_condition": false,
+          "options": [],
+          "schema_input": [],
+          "rules": {},
+          "id": "cd88bc18-bd7e-40e1-bc77-dd9ba674492c",
+          "value": "{{ dni }}"
+        },
+        {
+          "name": "representative_value",
+          "display_name": "Valor representativo",
+          "place_holder": "Escribe el texto aquí",
+          "description": "Valor representativo de la entidad",
+          "type_input": "text",
+          "is_increasing": false,
+          "is_optional": false,
+          "is_gather_name": false,
+          "is_representative": false,
+          "is_condition": false,
+          "options": [],
+          "schema_input": [],
+          "rules": {},
+          "id": "d15b06aa-ed01-4d8c-975e-f80d8dfd6e56",
+          "value": "{{ nombre }}"
+        }
+      ],
+      "schema_input_advanced": [],
+      "schema_variables": [
+        {
+          "name": "usuario micacao",
+          "description": "Si es usuario o no de micacao app",
+          "type_value": "boolean",
+          "is_module_attr": true,
+          "is_visual_table": false,
+          "is_representative": false,
+          "is_condition": false
+        },
+        {
+          "name": "entities_relation",
+          "description": "Las entidades parcelas que le pertenece al usuario",
+          "type_value": "list",
+          "list_type_value": "entity",
+          "is_module_attr": true,
+          "is_visual_table": false,
+          "is_representative": false,
+          "is_condition": false
+        }
+      ],
+      "schema_conditions": [
+        {
+          "id": "a394a975-2bc3-4299-8534-6ef8670d8e57",
+          "next_instruction_id": "",
+          "type_condition": "by_success"
+        }
+      ],
+      "group_index": {
+        "$numberInt": "0"
+      },
+      "metadata": {
+        "data_input": {
+          "representative_value": "{{ nombre }}",
+          "dni": "{{ dni }}"
+        }
+      }
+    }
+  ],
+  "module_id": "id del modulo relacionado",
+  "schema_gather_summary": [],
+  "created_at": "Tue Sep 10 2024 09:17:55 GMT-0500 (hora estándar de Perú)"
+}

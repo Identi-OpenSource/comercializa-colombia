@@ -1,0 +1,16 @@
+{
+  "_id": "Identificador del formulario MONGO",
+  "active_end_at": "",
+  "active_init_at": "",
+  "entity_type": "Tipo de entidad",
+  "id": "Identificador del formulario",
+  "image_path": "Imagen del formulario",
+  "module_type": "",
+  "name": "Nombre del formulario",
+  "schema_id": "Identificador del esquema del formulario",
+  "tenant": "",
+  "type_view": "",
+  "is_conditional": "Boolean para saber si es horizontal o vertical",
+  "MIS NOTAS": "MIS NOTAS",
+  "PRIMARY KEY": "La clave primaria seria id and tenant"
+}

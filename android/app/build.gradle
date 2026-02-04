@@ -1,0 +1,69 @@
+apply plugin: "com.android.application"
+apply plugin: "org.jetbrains.kotlin.android"
+apply plugin: "com.facebook.react"
+
+project.ext.envConfigFiles = [
+    debug: ".env",
+    release: ".env.production",
+]
+
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+
+react {
+    autolinkLibrariesWithApp()
+}
+
+def enableProguardInReleaseBuilds = true
+def jscFlavor = 'org.webkit:android-jsc:+'
+
+android {
+    ndkVersion rootProject.ext.ndkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdk rootProject.ext.compileSdkVersion
+
+    namespace "digital.identi.micacao.comercializa"
+    defaultConfig {
+        applicationId "digital.identi.micacao.comercializa"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode Integer.parseInt(env.VERSION_CODE)
+        versionName env.VERSION_NAME
+    }
+    signingConfigs {
+        debug {
+            storeFile file(env.RELEASE_STORE_FILE)
+            storePassword env.RELEASE_STORE_PASSWORD
+            keyAlias env.RELEASE_KEY_ALIAS
+            keyPassword env.RELEASE_KEY_PASSWORD
+        }
+        release {
+            storeFile file(env.RELEASE_STORE_FILE)
+            storePassword env.RELEASE_STORE_PASSWORD
+            keyAlias env.RELEASE_KEY_ALIAS
+            keyPassword env.RELEASE_KEY_PASSWORD
+        }
+    }
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+        }
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled enableProguardInReleaseBuilds
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
+    }
+}
+
+dependencies {
+    // The version of react-native is set by the React Native Gradle Plugin
+    implementation("com.facebook.react:react-android")
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
+
+    if (hermesEnabled.toBoolean()) {
+        implementation("com.facebook.react:hermes-android")
+    } else {
+        implementation jscFlavor
+    }
+}
